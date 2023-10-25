@@ -21,8 +21,8 @@ resource "kubernetes_deployment" "my_app" {
 
       spec {
         container {
-          name  = "my-app-container"
-          image = "<your-username>/<your-image-name>:latest"
+          name  = "hello-world"
+          image = "rajkz/hello-world:latest"
         }
       }
     }

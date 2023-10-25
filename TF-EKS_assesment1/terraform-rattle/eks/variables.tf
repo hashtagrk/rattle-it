@@ -7,3 +7,8 @@ variable "eks_node_instance_type" {
   description = "The instance type for EKS nodes."
   default = "r6a.2xlarge"
 }
+
+variable "dockerhub_app_name" {
+  type = string
+  default = "hello-world"
+}
