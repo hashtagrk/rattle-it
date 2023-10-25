@@ -1,14 +1,10 @@
-module "vpc" {
-  source = "../vpc"  # Relative path to the moduleB directory
-}
-
 module "eks" {
   source = "terraform-aws-modules/eks/aws"
 
   cluster_name = "Rattle-eks-cluster"
-  cluster_version = "${var.eks_cluster_version}"
+  cluster_version = var.eks_cluster_version
 
-  subnets = vpc.aws_subnet.private_subnet[*].id
+  subnets = var.subnet_id
 
   node_groups = {
     eks_nodes = {
@@ -16,7 +12,7 @@ module "eks" {
       max_capacity     = 2
       min_capacity     = 2
 
-      instance_type = "${var.eks_node_instance_type}"
+      instance_type = var.eks_node_instance_type
     }
   }
 }

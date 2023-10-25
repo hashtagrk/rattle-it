@@ -12,3 +12,7 @@ variable "dockerhub_app_name" {
   type = string
   default = "hello-world"
 }
+
+variable "subnet_id" {
+  type = list
+}
